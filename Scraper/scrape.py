@@ -1,11 +1,13 @@
 import csv
 import requests
+import urllib
 from bs4 import BeautifulSoup
 
 url = 'http://www.indianrail.gov.in/mail_express_trn_list.html'
-response = requests.get(url)
-html = response.content
+#response = requests.get(url)
+#html = response.content
 
+html = html = urllib.urlopen(url).read()
 soup = BeautifulSoup(html)
 table = soup.find('table', attrs={'class': 'table_border'})
 
